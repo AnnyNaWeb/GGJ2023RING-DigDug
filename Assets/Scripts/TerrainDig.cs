@@ -16,18 +16,12 @@ public class TerrainDig : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(diggingPoint.position, diggingRadius, terrainLayer);
+      
 
-            foreach (Collider2D collider in colliders)
-            {
-                if (collider.GetComponent<TerrainPiece>() != null)
-                {
-
-                    collider.GetComponent<TerrainPiece>().Dig(100);
-                }
-            }
-        }
+       
     }
+
+
+
+
 }
