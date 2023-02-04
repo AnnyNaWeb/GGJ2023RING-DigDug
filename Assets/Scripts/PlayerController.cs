@@ -7,8 +7,10 @@ public class PlayerController : MonoBehaviour
     public float speed = 2f;
     public float previousHorizontal = 0;
     private Rigidbody2D rb;
-    public Animator animator;
+   // public Animator animator;
     public int diggingPower = 10;
+    public static bool isBlocked = false; // Indicador de terreno bloqueado ou seguro
+
     public bool facingRight = true;
     public bool facingLeft = false;
     void Start()
@@ -18,12 +20,35 @@ public class PlayerController : MonoBehaviour
         previousHorizontal = Input.GetAxis("Horizontal");
     }
 
+
+
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+       // float horizontal = Input.GetAxis("Horizontal");
+       // float vertical = Input.GetAxis("Vertical");
 
-        rb.velocity = new Vector2(horizontal * speed, vertical * speed);
+        //  rb.velocity = new Vector2(horizontal * speed, vertical * speed);
+
+        if (isBlocked)
+        {
+            // Permite movimento tanto na horizontal quanto na vertical
+            float horizontal = Input.GetAxis("Horizontal");
+            float vertical = Input.GetAxis("Vertical");
+            Vector2 movement = new Vector2(horizontal, vertical);
+            rb.velocity = movement * speed;
+        }
+        else
+        {
+            // Permite apenas movimento na horizontal
+            float horizontal = Input.GetAxis("Horizontal");
+            Vector2 movement = new Vector2(horizontal, 0);
+            rb.velocity = movement * speed;
+        }
+
+        //  animator.SetFloat("Horizontal", horizontal);
+        // animator.SetFloat("Vertical", vertical);
+        // animator.SetFloat("Speed", Mathf.Abs(horizontal) + Mathf.Abs(vertical));
+
 
         animator.SetFloat("Horizontal", horizontal);
         animator.SetFloat("Vertical", vertical);
@@ -43,7 +68,7 @@ public class PlayerController : MonoBehaviour
         }
         previousHorizontal = Input.GetAxis("Horizontal");
 
-       
+
     }
-    
+
 }
