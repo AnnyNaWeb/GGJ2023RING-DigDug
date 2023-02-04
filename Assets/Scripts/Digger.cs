@@ -8,18 +8,6 @@ public class Digger : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down);
-            if (hit.collider != null)
-            {
-                TerrainPiece terrainPiece = hit.collider.GetComponent<TerrainPiece>();
-                if (terrainPiece != null)
-                {
-                    terrainPiece.Dig(diggingPower);
-                    Debug.Log("Cavou este terreno");
-                }
-            }
-        }
+        
     }
 }
