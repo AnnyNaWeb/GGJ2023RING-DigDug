@@ -10,9 +10,10 @@ public class PlayerController : MonoBehaviour
    // public Animator animator;
     public int diggingPower = 10;
     public static bool isBlocked = false; // Indicador de terreno bloqueado ou seguro
-
+    Animator animator;
     public bool facingRight = true;
     public bool facingLeft = false;
+    float horizontal, vertical;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -32,15 +33,15 @@ public class PlayerController : MonoBehaviour
         if (isBlocked)
         {
             // Permite movimento tanto na horizontal quanto na vertical
-            float horizontal = Input.GetAxis("Horizontal");
-            float vertical = Input.GetAxis("Vertical");
+             horizontal = Input.GetAxis("Horizontal");
+             vertical = Input.GetAxis("Vertical");
             Vector2 movement = new Vector2(horizontal, vertical);
             rb.velocity = movement * speed;
         }
         else
         {
             // Permite apenas movimento na horizontal
-            float horizontal = Input.GetAxis("Horizontal");
+             horizontal = Input.GetAxis("Horizontal");
             Vector2 movement = new Vector2(horizontal, 0);
             rb.velocity = movement * speed;
         }
