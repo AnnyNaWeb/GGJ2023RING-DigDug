@@ -13,7 +13,7 @@ public class TimerController : MonoBehaviour
     void Start()
     {
         acabaTempo = 0;
-        totalTime = 10;
+        totalTime = 60;
     }
 
     // Update is called once per frame
