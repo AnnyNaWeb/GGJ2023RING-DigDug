@@ -20,7 +20,7 @@ public class TerrainPieceController : MonoBehaviour
             {
                 digging = false;
                 diggingCounter = 0f;
-                terrainPiece.Dig(1);
+                terrainPiece.Dig();
             }
         }
     }
