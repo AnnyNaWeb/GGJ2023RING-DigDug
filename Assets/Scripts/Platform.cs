@@ -12,7 +12,5 @@ public class Platform : MonoBehaviour
         PlayerControllerBackUp.jacaiu = false;
         PlayerControllerBackUp.posCaida = PlayerControllerBackUp.transformerPosH;
         PlayerControllerBackUp.animator.SetBool("UpDown", true);
-      //  PlayerController.rb.velocity = new Vector2(rb.velocity.x, 0);
-      //  PlayerController.transform.position = new Vector2(transform.position.x, collision.transform.position.y);
-    }
+   }
 }

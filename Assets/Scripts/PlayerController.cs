@@ -15,10 +15,10 @@ public class PlayerController : MonoBehaviour
     public bool facingLeft = false;
     float horizontal, vertical;
     Vector2 movement;
-    public static bool jacaiu = false;
 
 
-    bool caiu;
+
+    public static bool caiu, subiu;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -31,10 +31,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(caiu && jacaiu == false){
-           CairNoTerreno();
-           return;
-        }
+     
 
         if (isBlocked)
         {
@@ -54,21 +51,18 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            if(subiu)
+            {
+                SobeNaArvore();
+            }
             // Permite apenas movimento na horizontal
-            horizontal = Input.GetAxis("Horizontal");
-            movement = new Vector2(horizontal, vertical);
-            rb.velocity = movement * speed;
+            MoveHorizontal();
         }
 
 
         animator.SetFloat("Horizontal", horizontal);
         animator.SetFloat("Vertical", vertical);
         animator.SetFloat("Speed", Mathf.Abs(horizontal) + Mathf.Abs(vertical));
-        if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)){
-            animator.SetBool("UpDown", true);
-        }else{
-            animator.SetBool("UpDown", false);
-        }
         if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)){
             animator.SetBool("isWalking", true);
         }else{
@@ -88,10 +82,29 @@ public class PlayerController : MonoBehaviour
     }
 
     public void CairNoTerreno()
-    {  
-        if(transform.position.y < 0) jacaiu = true;
-        transform.position = new Vector3(transform.position.x, transform.position.y-(float)0.01, 0);
-    
+    {
+        rb.velocity = new Vector2(rb.velocity.x, 0);
+        Debug.Log("entrou");
+        movement.y -= 1;
+        transform.position = movement;
+        caiu = true;
+        subiu = false;
+    }
+
+    public void MoveHorizontal()
+    {
+        horizontal = Input.GetAxis("Horizontal");
+        movement = new Vector2(horizontal, 0);
+        rb.velocity = movement * speed;
+    }
+
+    public void SobeNaArvore()
+    {
+        rb.velocity = new Vector2(rb.velocity.x, 0);
+        movement.y += 5;
+        transform.position = movement;
+        subiu = true;
+        caiu = false;
     }
 
     
