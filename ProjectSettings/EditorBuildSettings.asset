@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndGame.unity
     guid: 298f7ee1e80fc6a41b42c4f35d0596e6
+  - enabled: 1
+    path: Assets/Scenes/Vitoria.unity
+    guid: f34c88b20b5f08c4b8297e5b26b7537e
   m_configObjects: {}
