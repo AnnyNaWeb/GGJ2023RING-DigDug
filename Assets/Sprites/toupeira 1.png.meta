@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f48567b7bc8a2064fb330ec9bc31855f
+guid: caca31186b7fd1c4b89c8a3dfb1b4810
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 422, w: 0}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -101,40 +101,16 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: toupeira_0
+      name: toupeira 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 432
+        width: 429
         height: 230
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -143,19 +119,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf82f459a334d474f837ee50af5b05e0
-      internalID: -1706118329
+      spriteID: a7392e1b7bec7144e9b441c51b4e5d46
+      internalID: -1285206942
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: toupeira_1
+      name: toupeira 1_1
       rect:
         serializedVersion: 2
-        x: 432
+        x: 429
         y: 0
-        width: 418
+        width: 421
         height: 230
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -164,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fd03137715fd464a91ed213c77d2e05
-      internalID: 1170605567
+      spriteID: a019a2545d39fdc47b9be872d32c8601
+      internalID: -1640854383
       vertices: []
       indices: 
       edges: []
@@ -174,15 +150,15 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      toupeira_0: -1706118329
-      toupeira_1: 1170605567
+      toupeira 1_1: -1640854383
+      toupeira 1_0: -1285206942
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
