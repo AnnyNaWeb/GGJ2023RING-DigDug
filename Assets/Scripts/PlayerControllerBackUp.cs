@@ -77,7 +77,7 @@ public class PlayerControllerBackUp : MonoBehaviour
             if (caiu)
             {
                 // Permite movimento tanto na horizontal quanto na vertical
-                
+                GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
                 horizontal = Input.GetAxis("Horizontal");
                 vertical = Input.GetAxis("Vertical");
                 movement = new Vector2(horizontal, vertical);
@@ -159,13 +159,15 @@ public class PlayerControllerBackUp : MonoBehaviour
            
             jacaiu = true; 
             caiu = true;
-            transform.Rotate(new Vector3(0,0,0));
             
             // transform.Rotation = Quaternion(0, 0, 0, 0);
             //  transform.Rotate(new Vector3(0, 0, 45));
 
             UnfreezePosition();
-            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+            float rotation = transform.eulerAngles.z;
+            transform.eulerAngles = new Vector3(0, 0, 0);
+            //transform.Rotate(new Vector3(0, 0, 0));
+
         }
        
 
