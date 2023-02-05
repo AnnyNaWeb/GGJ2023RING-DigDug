@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     public bool facingLeft = false;
     float horizontal, vertical;
     Vector2 movement;
-
+    public static bool jacaiu = false;
 
 
     bool caiu;
@@ -31,7 +31,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-     
+        if(caiu && jacaiu == false){
+           CairNoTerreno();
+           return;
+        }
 
         if (isBlocked)
         {
@@ -52,8 +55,8 @@ public class PlayerController : MonoBehaviour
         else
         {
             // Permite apenas movimento na horizontal
-             horizontal = Input.GetAxis("Horizontal");
-             movement = new Vector2(horizontal, 0);
+            horizontal = Input.GetAxis("Horizontal");
+            movement = new Vector2(horizontal, vertical);
             rb.velocity = movement * speed;
         }
 
@@ -86,12 +89,10 @@ public class PlayerController : MonoBehaviour
     }
 
     public void CairNoTerreno()
-    {
-        rb.velocity = new Vector2(rb.velocity.x, 0);
-        Debug.Log("entrou");
-        movement.y -= 1;
-        transform.position = movement;
-        caiu = true;
+    {  
+        if(transform.position.y < 0) jacaiu = true;
+        transform.position = new Vector3(transform.position.x, transform.position.y-(float)0.01, 0);
+    
     }
 
     
