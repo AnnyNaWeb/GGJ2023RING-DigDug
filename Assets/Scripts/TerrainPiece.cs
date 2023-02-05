@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class TerrainPiece : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class TerrainPiece : MonoBehaviour
     {
         //EffectBreak();
         Instantiate(dugPrefab, transform.position, transform.rotation);
+       // EffectBreak();
         Destroy(gameObject);
 
             spriteRenderer.enabled = false;
@@ -41,22 +43,23 @@ public class TerrainPiece : MonoBehaviour
        
 
     }
+   
+    public void Update()
+    {
+        
+    }
     public void EffectBreak()
     {
         Instantiate(_break, transform.position, Quaternion.identity);
         Dig();
-    }
-
-    public void Update()
-    {
-        
+      
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
 
         Debug.Log("TA ENCOSTANO");
-       EffectBreak();
+        EffectBreak();
 
 
     }

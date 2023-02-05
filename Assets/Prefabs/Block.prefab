@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1050648515439780376}
   - component: {fileID: 1050648515439780377}
   - component: {fileID: 1050648515439780378}
-  - component: {fileID: 1050648515439780379}
   - component: {fileID: 476852670040864885}
   - component: {fileID: 7753302700840069304}
   m_Layer: 0
@@ -78,11 +77,11 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 737dd907ac659544bad4498f0094375e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 0.8828125}
+  m_Size: {x: 3.29, y: 3.29}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -106,7 +105,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 3.29, y: 3.29}
-    newSize: {x: 1, y: 0.8828125}
+    newSize: {x: 3.29, y: 3.29}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -114,21 +113,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.2732, y: 3.267058}
   m_EdgeRadius: 0
---- !u!114 &1050648515439780379
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1050648515439780380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eaeb3e0e13224414db445c42640828f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dugPrefab: {fileID: 8781786391719619657, guid: 43c55634f7cd7b14685b996b2a8642ea, type: 3}
-  _break: {fileID: 0}
-  material: {fileID: 2100000, guid: bc6911724fe232048be82e91905319c9, type: 2}
 --- !u!198 &476852670040864885
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -212,7 +196,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 0.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
