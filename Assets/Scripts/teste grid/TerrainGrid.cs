@@ -15,7 +15,10 @@ public class TerrainGrid : MonoBehaviour
     {
         SpriteRenderer spriteRenderer = tilePrefab.GetComponent<SpriteRenderer>();
         tileSize = spriteRenderer.sprite.bounds.size;
+        Vector3 scale = tilePrefab.transform.localScale;
 
+        tileSize.x *= scale.x;
+        tileSize.y *= scale.y;
         for (int x = 0; x < gridWidth; x++)
         {
             for (int y = 0; y < gridHeight; y++)
