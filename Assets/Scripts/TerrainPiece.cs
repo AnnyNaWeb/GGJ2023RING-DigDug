@@ -37,8 +37,8 @@ public class TerrainPiece : MonoBehaviour
        // EffectBreak();
         Destroy(gameObject);
 
-            spriteRenderer.enabled = false;
-            boxCollider2D.enabled = false;
+           // spriteRenderer.enabled = false;
+            //boxCollider2D.enabled = false;
         
        
 
