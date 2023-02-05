@@ -18,14 +18,15 @@ public class PlayerControllerBackUp : MonoBehaviour
     Vector2 movement;
     public static bool jacaiu = false;
     public static float posCaida = 0;
-    
-    
-    bool caiu;
+
+ 
+    public static bool caiu;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         previousHorizontal = Input.GetAxis("Horizontal");
+        
        // caiu = false;
     }
     public void FreezePosition()
