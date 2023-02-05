@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public bool facingRight = true;
     public bool facingLeft = false;
     float horizontal, vertical;
-    Vector2 movement;
+    public Vector2 movement;
 
 
 
@@ -107,6 +107,7 @@ public class PlayerController : MonoBehaviour
         caiu = false;
     }
 
-    
+ 
+
 
 }
