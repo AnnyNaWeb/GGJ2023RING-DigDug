@@ -3316,6 +3316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dugPrefab: {fileID: 8781786391719619657, guid: 43c55634f7cd7b14685b996b2a8642ea, type: 3}
+  _break: {fileID: 1050648515439780380, guid: 3fb63976a55959f4eb6134c62485883f, type: 3}
   material: {fileID: 2100000, guid: bc6911724fe232048be82e91905319c9, type: 2}
 --- !u!61 &971049405
 BoxCollider2D:
@@ -3383,7 +3384,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 737dd907ac659544bad4498f0094375e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3403,8 +3404,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 971049403}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.77, y: 6.9, z: 0}
-  m_LocalScale: {x: 2.7, y: 2.7, z: 2.7}
+  m_LocalPosition: {x: 8.3, y: 40.6, z: 0}
+  m_LocalScale: {x: 2.7000003, y: 2.7000003, z: 2.7}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3807,7 +3808,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1141679391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6878,7 +6879,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1991307017
 BoxCollider2D:
   m_ObjectHideFlags: 0

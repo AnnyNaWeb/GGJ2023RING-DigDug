@@ -6,6 +6,8 @@ public class TerrainPiece : MonoBehaviour
 {
     [SerializeField]
     private GameObject dugPrefab;
+    [SerializeField]
+    private GameObject _break;
 
 
 
@@ -29,7 +31,7 @@ public class TerrainPiece : MonoBehaviour
 
     public  void Dig()
     {
-
+        //EffectBreak();
         Instantiate(dugPrefab, transform.position, transform.rotation);
         Destroy(gameObject);
 
@@ -38,6 +40,11 @@ public class TerrainPiece : MonoBehaviour
         
        
 
+    }
+    public void EffectBreak()
+    {
+        Instantiate(_break, transform.position, Quaternion.identity);
+        Dig();
     }
 
     public void Update()
@@ -49,7 +56,8 @@ public class TerrainPiece : MonoBehaviour
     {
 
         Debug.Log("TA ENCOSTANO");
-        Dig();
-      
+       EffectBreak();
+
+
     }
 }
