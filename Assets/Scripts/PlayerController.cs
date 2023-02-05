@@ -61,12 +61,6 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Horizontal", horizontal);
         animator.SetFloat("Vertical", vertical);
         animator.SetFloat("Speed", Mathf.Abs(horizontal) + Mathf.Abs(vertical));
-        if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)){
-            animator.SetBool("UpDown", true);
-        }else{
-            animator.SetBool("UpDown", false);
-        }
-
         if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)){
             animator.SetBool("isWalking", true);
         }else{
