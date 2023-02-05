@@ -8,11 +8,12 @@ public class TimerController : MonoBehaviour
     public TextMeshProUGUI tempo;
     private float totalTime;
     private int acabaTempo;
+    
     // Start is called before the first frame update
     void Start()
     {
         acabaTempo = 0;
-        totalTime = 60;
+        totalTime = 10;
     }
 
     // Update is called once per frame
@@ -26,12 +27,14 @@ public class TimerController : MonoBehaviour
 
         if(totalTime <= 0)
         {
+            
             GameOver();
         }
     }
 
     public void GameOver()
     {
+        
         SceneManager.LoadScene(2);
     }
 }
