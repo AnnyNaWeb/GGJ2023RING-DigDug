@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-    bool caiu;
+    public static bool caiu, subiu;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -51,10 +51,12 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            if(subiu)
+            {
+                SobeNaArvore();
+            }
             // Permite apenas movimento na horizontal
-             horizontal = Input.GetAxis("Horizontal");
-             movement = new Vector2(horizontal, 0);
-            rb.velocity = movement * speed;
+            MoveHorizontal();
         }
 
 
@@ -86,6 +88,23 @@ public class PlayerController : MonoBehaviour
         movement.y -= 1;
         transform.position = movement;
         caiu = true;
+        subiu = false;
+    }
+
+    public void MoveHorizontal()
+    {
+        horizontal = Input.GetAxis("Horizontal");
+        movement = new Vector2(horizontal, 0);
+        rb.velocity = movement * speed;
+    }
+
+    public void SobeNaArvore()
+    {
+        rb.velocity = new Vector2(rb.velocity.x, 0);
+        movement.y += 5;
+        transform.position = movement;
+        subiu = true;
+        caiu = false;
     }
 
     
