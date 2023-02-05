@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerControllerBackUp : MonoBehaviour
 {
-    public float speed = 2f;
+   public float speed = 2f;
     public float previousHorizontal = 0;
     public static Rigidbody2D rb;
    // public Animator animator;
