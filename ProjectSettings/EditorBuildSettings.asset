@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StartUp.unity
     guid: 891aac21a8d9fcc41abb5e516f4a69ca
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TerrenoBlock.unity
     guid: d7e7b51c3a89c194a9138519a564a9e0
+  - enabled: 1
+    path: Assets/Scenes/TerrenoBackup.unity
+    guid: 2850c511916ca7a47aa396d3bf658230
   m_configObjects: {}
