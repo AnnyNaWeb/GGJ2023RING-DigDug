@@ -46,5 +46,10 @@ public class PlayMenu : MonoBehaviour
         StartGame();
     }
 
+    public void StartAgain()
+    {
+        SceneManager.LoadScene(1);
+    }
+
 
 }

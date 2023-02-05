@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public GameObject timer;
+    public  GameObject timer;
+    
     
     public void Start()
     {
