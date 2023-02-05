@@ -7,7 +7,7 @@ public class InteractiveTile : MonoBehaviour
     public PlayerControllerBackUp targetObject;
     public MonoBehaviour targetScript;
 
-
+    public AudioSource bateu;
 
     void Start()
     {
@@ -18,6 +18,7 @@ public class InteractiveTile : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            
             targetObject.FreezePosition();
             targetScript.enabled = false;
            
@@ -28,7 +29,7 @@ public class InteractiveTile : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            
+            bateu.Play();
             targetScript.enabled = true;
             targetObject.UnfreezePosition();
         }
