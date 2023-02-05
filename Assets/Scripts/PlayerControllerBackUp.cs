@@ -8,16 +8,16 @@ public class PlayerControllerBackUp : MonoBehaviour
     public float previousHorizontal = 0;
     public static Rigidbody2D rb;
    // public Animator animator;
+    public static float transformerPosH = 0;
     public int diggingPower = 10;
     public static bool isBlocked = false; // Indicador de terreno bloqueado ou seguro
-    Animator animator;
+    public static Animator animator;
     public bool facingRight = true;
     public bool facingLeft = false;
     float horizontal, vertical;
     Vector2 movement;
     public static bool jacaiu = false;
-
-
+    public static float posCaida = 0;
     bool caiu;
     void Start()
     {
@@ -31,7 +31,8 @@ public class PlayerControllerBackUp : MonoBehaviour
 
     void Update()
     {
-        if(caiu && jacaiu == false){
+        transformerPosH = transform.position.x;
+        if(!caiu && jacaiu == false){
            CairNoTerreno();
            return;
         }
@@ -43,7 +44,7 @@ public class PlayerControllerBackUp : MonoBehaviour
                 // Permite movimento tanto na horizontal quanto na vertical
                 horizontal = Input.GetAxis("Horizontal");
                 vertical = Input.GetAxis("Vertical");
-                 movement = new Vector2(horizontal, vertical);
+                movement = new Vector2(horizontal, vertical);
                 rb.velocity = movement * speed;
             }
             else
@@ -56,7 +57,7 @@ public class PlayerControllerBackUp : MonoBehaviour
         {
             // Permite apenas movimento na horizontal
             horizontal = Input.GetAxis("Horizontal");
-            movement = new Vector2(horizontal, vertical);
+            movement = new Vector2(horizontal, 0);
             rb.velocity = movement * speed;
         }
 
@@ -89,9 +90,14 @@ public class PlayerControllerBackUp : MonoBehaviour
 
     public void CairNoTerreno()
     {  
-        if(transform.position.y < 0) jacaiu = true;
-        transform.position = new Vector3(transform.position.x, transform.position.y-(float)0.01, 0);
-    
+        Debug.Log(transform.position.y);
+        if(transform.position.y > -10){
+            transform.position = new Vector3(posCaida, transform.position.y-(float)0.02, 0);
+          
+            jacaiu = true;
+
+        }else{jacaiu = true;caiu = true;}
+ 
     }
 
     

@@ -8,10 +8,9 @@ public class Platform : MonoBehaviour
     {
         // C�digo a ser executado quando houver colis�o
         Debug.Log("Teste");
-        PlayerController.isBlocked = true;
-       // PlayerController.caiu = false;
-        
-      //  PlayerController.rb.velocity = new Vector2(rb.velocity.x, 0);
-      //  PlayerController.transform.position = new Vector2(transform.position.x, collision.transform.position.y);
-    }
+        PlayerControllerBackUp.isBlocked = true;
+        PlayerControllerBackUp.jacaiu = false;
+        PlayerControllerBackUp.posCaida = PlayerControllerBackUp.transformerPosH;
+        PlayerControllerBackUp.animator.SetBool("UpDown", true);
+   }
 }
