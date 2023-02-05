@@ -18,8 +18,9 @@ public class PlayerControllerBackUp : MonoBehaviour
     Vector2 movement;
     public static bool jacaiu = false;
     public static float posCaida = 0;
+    public AudioSource cavar;
 
- 
+
     public static bool caiu;
     void Start()
     {
@@ -50,7 +51,7 @@ public class PlayerControllerBackUp : MonoBehaviour
         else if (rb.velocity.y < 0)
         {
             // Player está vindo de baixo
-            transform.position = new Vector3(transform.position.x , transform.position.y +1.5f, transform.position.z);
+            transform.position = new Vector3(transform.position.x , transform.position.y +2f, transform.position.z);
         }
        
 
@@ -143,6 +144,17 @@ public class PlayerControllerBackUp : MonoBehaviour
 
         }
         else { jacaiu = true; caiu = true; }
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+
+        if (other.CompareTag("Terrain"))
+        {
+            cavar.Play();
+        }
+
 
     }
 

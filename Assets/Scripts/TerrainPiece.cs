@@ -12,6 +12,7 @@ public class TerrainPiece : MonoBehaviour
 
 
 
+
     private SpriteRenderer spriteRenderer;
     private BoxCollider2D boxCollider2D;
 
@@ -50,6 +51,7 @@ public class TerrainPiece : MonoBehaviour
     }
     public void EffectBreak()
     {
+
         Instantiate(_break, transform.position, Quaternion.identity);
         Dig();
       
