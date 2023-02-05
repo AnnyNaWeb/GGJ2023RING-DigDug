@@ -61,6 +61,12 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Horizontal", horizontal);
         animator.SetFloat("Vertical", vertical);
         animator.SetFloat("Speed", Mathf.Abs(horizontal) + Mathf.Abs(vertical));
+        if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)){
+            animator.SetBool("UpDown", true);
+        }else{
+            animator.SetBool("UpDown", false);
+        }
+
         if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)){
             animator.SetBool("isWalking", true);
         }else{
@@ -83,7 +89,7 @@ public class PlayerController : MonoBehaviour
     {
         rb.velocity = new Vector2(rb.velocity.x, 0);
         Debug.Log("entrou");
-       movement.y -= 1;
+        movement.y -= 1;
         transform.position = movement;
         caiu = true;
     }

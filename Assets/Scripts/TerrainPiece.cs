@@ -20,6 +20,7 @@ public class TerrainPiece : MonoBehaviour
 
     private void Start()
     {
+        //Digger.cavarTerreno = false;
         spriteRenderer = GetComponent<SpriteRenderer>();
         boxCollider2D = GetComponent<BoxCollider2D>();
 
@@ -27,23 +28,35 @@ public class TerrainPiece : MonoBehaviour
         terrainPieceController = GetComponent<TerrainPieceController>();
     }
 
-    public void Dig(int damage)
+    public  void Dig()
     {
-        terrainPieceController.StartDigging();
+       // terrainPieceController.StartDigging();
         Instantiate(dugPrefab, transform.position, transform.rotation);
         Destroy(gameObject);
 
-        currentHealth -= damage;
+        //currentHealth -= damage;
 
-        if (currentHealth <= 0)
-        {
-            spriteRenderer.enabled = false;
+
+        spriteRenderer.enabled = false;
             boxCollider2D.enabled = false;
-        }
+        
+       
+
     }
 
     public void Update()
     {
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // Código a ser executado quando houver colisão
+        Debug.Log("TA ENCOSTANO");
+        Dig();
+       // Digger.cavarTerreno = true;
+      
+        //  PlayerController.rb.velocity = new Vector2(rb.velocity.x, 0);
+        //  PlayerController.transform.position = new Vector2(transform.position.x, collision.transform.position.y);
     }
 }
