@@ -8,6 +8,7 @@ public class TerrainGrid : MonoBehaviour
     public int gridWidth = 10;
     public int gridHeight = 10;
     public Vector2 tileSize;
+    public Vector2 startPos;
     public static bool isInteractive;
 
     void Start()
@@ -19,7 +20,9 @@ public class TerrainGrid : MonoBehaviour
         {
             for (int y = 0; y < gridHeight; y++)
             {
-                GameObject tile = Instantiate(tilePrefab, new Vector3(x * tileSize.x, y * tileSize.y, 0), Quaternion.identity);
+                Vector3 tilePos = new Vector3(startPos.x + x * tileSize.x, startPos.y + y * tileSize.y, 0);
+                GameObject tile = Instantiate(tilePrefab, tilePos, Quaternion.identity);
+                // GameObject tile = Instantiate(tilePrefab, new Vector3(x * tileSize.x, y * tileSize.y, 1), Quaternion.identity);
                 tile.transform.parent = transform;
 
                 if (isInteractive)

@@ -18,25 +18,53 @@ public class PlayerControllerBackUp : MonoBehaviour
     Vector2 movement;
     public static bool jacaiu = false;
     public static float posCaida = 0;
+    
+    
     bool caiu;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         previousHorizontal = Input.GetAxis("Horizontal");
-        caiu = false;
+       // caiu = false;
+    }
+    public void FreezePosition()
+    {
+
+        if (rb.velocity.x > 0)
+        {
+            // Player está vindo da direita
+            transform.position = new Vector3(transform.position.x - 1.5f, transform.position.y, transform.position.z);
+        }
+        else if (rb.velocity.x < 0)
+        {
+            // Player está vindo da esquerda
+            transform.position = new Vector3(transform.position.x +1.5f, transform.position.y, transform.position.z);
+        }
+        else if (rb.velocity.y > 0)
+        {
+            // Player está vindo de cima
+            transform.position = new Vector3(transform.position.x, transform.position.y - 1.5f, transform.position.z);
+        }
+        else if (rb.velocity.y < 0)
+        {
+            // Player está vindo de baixo
+            transform.position = new Vector3(transform.position.x , transform.position.y +1.5f, transform.position.z);
+        }
+       
+
+        rb.constraints = RigidbodyConstraints2D.FreezePosition;
     }
 
+    public void UnfreezePosition()
+    {
+        rb.constraints = RigidbodyConstraints2D.None;
+    }
 
 
     void Update()
     {
-       /* transformerPosH = transform.position.x;
-        if (!caiu && jacaiu == false)
-        {
-            CairNoTerreno();
-            return;
-        }*/
+       
 
         if (isBlocked)
         {
