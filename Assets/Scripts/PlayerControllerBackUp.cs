@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerControllerBackUp : MonoBehaviour
 {
-   public float speed = 2f;
+    public float speed = 2f;
     public float previousHorizontal = 0;
     public static Rigidbody2D rb;
-   // public Animator animator;
+    // public Animator animator;
     public static float transformerPosH = 0;
     public int diggingPower = 10;
     public static bool isBlocked = false; // Indicador de terreno bloqueado ou seguro
@@ -31,17 +31,19 @@ public class PlayerControllerBackUp : MonoBehaviour
 
     void Update()
     {
-        transformerPosH = transform.position.x;
-        if(!caiu && jacaiu == false){
-           CairNoTerreno();
-           return;
-        }
+       /* transformerPosH = transform.position.x;
+        if (!caiu && jacaiu == false)
+        {
+            CairNoTerreno();
+            return;
+        }*/
 
         if (isBlocked)
         {
             if (caiu)
             {
                 // Permite movimento tanto na horizontal quanto na vertical
+                
                 horizontal = Input.GetAxis("Horizontal");
                 vertical = Input.GetAxis("Vertical");
                 movement = new Vector2(horizontal, vertical);
@@ -50,8 +52,9 @@ public class PlayerControllerBackUp : MonoBehaviour
             else
             {
                 CairNoTerreno();
+                return;
             }
-            
+
         }
         else
         {
@@ -65,21 +68,32 @@ public class PlayerControllerBackUp : MonoBehaviour
         animator.SetFloat("Horizontal", horizontal);
         animator.SetFloat("Vertical", vertical);
         animator.SetFloat("Speed", Mathf.Abs(horizontal) + Mathf.Abs(vertical));
-        if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)){
+
+
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow))
+        {
             animator.SetBool("UpDown", true);
-        }else{
+        }
+        else
+        {
             animator.SetBool("UpDown", false);
         }
-        if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)){
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
+        {
             animator.SetBool("isWalking", true);
-        }else{
+        }
+        else
+        {
             animator.SetBool("isWalking", false);
         }
 
-        if(previousHorizontal < horizontal){
+        if (previousHorizontal < horizontal)
+        {
             animator.SetBool("facingLeft", false);
             animator.SetBool("facingRight", true);
-        }else if(previousHorizontal >  horizontal){
+        }
+        else if (previousHorizontal > horizontal)
+        {
             animator.SetBool("facingRight", false);
             animator.SetBool("facingLeft", true);
         }
@@ -89,17 +103,19 @@ public class PlayerControllerBackUp : MonoBehaviour
     }
 
     public void CairNoTerreno()
-    {  
+    {
+        //animator.SetBool("UpDown", true);
         Debug.Log(transform.position.y);
-        if(transform.position.y > -10){
-            transform.position = new Vector3(posCaida, transform.position.y-(float)0.02, 0);
-          
+        if (transform.position.y > -10)
+        {
+            transform.position = new Vector3(posCaida, transform.position.y - (float)0.02, 0);
+
             jacaiu = true;
 
-        }else{jacaiu = true;caiu = true;}
- 
+        }
+        else { jacaiu = true; caiu = true; }
+
     }
 
-    
 
 }

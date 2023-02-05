@@ -9,8 +9,8 @@ public class Platform : MonoBehaviour
         // C�digo a ser executado quando houver colis�o
         Debug.Log("Teste");
         PlayerControllerBackUp.isBlocked = true;
-        PlayerControllerBackUp.jacaiu = false;
-        PlayerControllerBackUp.posCaida = PlayerControllerBackUp.transformerPosH;
+      PlayerControllerBackUp.jacaiu = false;
+      PlayerControllerBackUp.posCaida = PlayerControllerBackUp.transformerPosH;
         PlayerControllerBackUp.animator.SetBool("UpDown", true);
    }
 }
