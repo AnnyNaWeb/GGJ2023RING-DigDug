@@ -6,20 +6,24 @@ using UnityEngine.SceneManagement;
 public class EnemyPatrol : MonoBehaviour
 {
     public Transform player;
+     public float previousHorizontal = 0;
     public float patrolSpeed = 2f;
     public float chaseSpeed = 5f;
     public float chaseTriggerDistance = 5f;
-
+    public static Animator animator;
     private Vector2 patrolDestination;
     private int currentPatrolIndex;
     public Vector2[] patrolWaypoints;
 
     private void Start()
     {
+        Debug.Log("1");
         patrolWaypoints = new Vector2[] {
             new Vector2(transform.position.x - 10, transform.position.y),
             new Vector2(transform.position.x + 10, transform.position.y)
         };
+        animator = GetComponent<Animator>();
+        previousHorizontal = transform.position.x;
         patrolDestination = patrolWaypoints[0];
     }
 
@@ -34,6 +38,16 @@ public class EnemyPatrol : MonoBehaviour
         {
             Patrol();
         }
+
+        if (previousHorizontal < transform.position.x)
+        {
+            GetComponent<Animator>().SetBool("ESQUERDA", false);
+        }
+        else if (previousHorizontal > transform.position.x)
+        {
+             GetComponent<Animator>().SetBool("ESQUERDA", true);
+        }
+         previousHorizontal = transform.position.x;
     }
 
     private void ChasePlayer()
