@@ -29,9 +29,10 @@ public class InteractiveTile : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            bateu.Play();
+            
             targetScript.enabled = true;
             targetObject.UnfreezePosition();
+            bateu.Play();
         }
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerControllerBackUp : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class PlayerControllerBackUp : MonoBehaviour
     float horizontal, vertical;
     Vector2 movement;
     public static bool jacaiu = false;
-    public static float posCaida = 0;
+    public static float posCaida;
     public AudioSource cavar;
 
 
@@ -25,32 +26,34 @@ public class PlayerControllerBackUp : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        
         animator = GetComponent<Animator>();
         previousHorizontal = Input.GetAxis("Horizontal");
         
-       // caiu = false;
+
+        // caiu = false;
     }
     public void FreezePosition()
     {
 
         if (rb.velocity.x > 0)
         {
-            // Player está vindo da direita
-            transform.position = new Vector3(transform.position.x - 1.5f, transform.position.y, transform.position.z);
+            // Player estï¿½ vindo da direita
+            transform.position = new Vector3(transform.position.x - 2f, transform.position.y, transform.position.z);
         }
         else if (rb.velocity.x < 0)
         {
-            // Player está vindo da esquerda
+            // Player estï¿½ vindo da esquerda
             transform.position = new Vector3(transform.position.x +1.5f, transform.position.y, transform.position.z);
         }
         else if (rb.velocity.y > 0)
         {
-            // Player está vindo de cima
+            // Player estï¿½ vindo de cima
             transform.position = new Vector3(transform.position.x, transform.position.y - 1.5f, transform.position.z);
         }
         else if (rb.velocity.y < 0)
         {
-            // Player está vindo de baixo
+            // Player estï¿½ vindo de baixo
             transform.position = new Vector3(transform.position.x , transform.position.y +2f, transform.position.z);
         }
        
@@ -61,6 +64,7 @@ public class PlayerControllerBackUp : MonoBehaviour
     public void UnfreezePosition()
     {
         rb.constraints = RigidbodyConstraints2D.None;
+       
     }
 
 
@@ -77,11 +81,17 @@ public class PlayerControllerBackUp : MonoBehaviour
                 horizontal = Input.GetAxis("Horizontal");
                 vertical = Input.GetAxis("Vertical");
                 movement = new Vector2(horizontal, vertical);
+               
+               
+
                 rb.velocity = movement * speed;
             }
             else
             {
+                posCaida = transform.position.x;
+                FreezePosition();
                 CairNoTerreno();
+                
                 return;
             }
 
@@ -136,14 +146,28 @@ public class PlayerControllerBackUp : MonoBehaviour
     {
         //animator.SetBool("UpDown", true);
         Debug.Log(transform.position.y);
+        
         if (transform.position.y > -10)
         {
-            transform.position = new Vector3(posCaida, transform.position.y - (float)0.02, 0);
-
-            jacaiu = true;
+            transform.position = new Vector3(posCaida, transform.position.y - (float)0.05, transform.position.z);
+            transform.Rotate(new Vector3(0, 0, 1 * Time.deltaTime * 90));
+            //  jacaiu = true;
 
         }
-        else { jacaiu = true; caiu = true; }
+        else 
+        {
+           
+            jacaiu = true; 
+            caiu = true;
+            transform.Rotate(new Vector3(0,0,0));
+            
+            // transform.Rotation = Quaternion(0, 0, 0, 0);
+            //  transform.Rotate(new Vector3(0, 0, 45));
+
+            UnfreezePosition();
+            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+       
 
     }
 
